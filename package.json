@@ -1,0 +1,37 @@
+{
+  "name": "2ch",
+  "version": "1.0.0",
+  "description": "WordPress plugin for Japanese notorious anonymous BBS clone.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hametuha/2ch.git"
+  },
+  "keywords": [
+    "wordpress"
+  ],
+  "author": "fumikito",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hametuha/2ch/issues"
+  },
+  "homepage": "https://github.com/hametuha/2ch#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "imagemin-pngquant": "^4.2.0",
+    "jshint-stylish": "^2.1.0"
+  }
+}

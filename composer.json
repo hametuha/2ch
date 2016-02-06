@@ -1,0 +1,13 @@
+{
+    "name": "hametuha/2ch",
+    "description": "WordPress plugin for Japanese notorious anonymous BBS clone.",
+    "license": "GPL3",
+    "authors": [
+        {
+            "name": "fumikito",
+            "email": "guy@hametuha.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
