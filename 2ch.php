@@ -11,17 +11,39 @@ Text Domain: 2ch
 Domain Path: /languages
 */
 
-load_plugin_textdomain( '2ch', false, '2ch/languages' );
+// Avoid direct load
+defined('ABSPATH') or die('Do not load directly');
 
-if ( version_compare( phpversion(), '5.3.*', '<' ) ) {
+// Load i18n.
+load_plugin_textdomain( '2ch', false,  basename(dirname(__FILE__)). DIRECTORY_SEPARATOR . 'languages' );
 
+// Check smallest availability.
+if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
+	if( file_exists( __DIR__.'/vendor/autoload.php' ) ){
+		// Initialize instance.
+		require __DIR__.'/vendor/autoload.php';
+		\Hametuha\Nichan\Bootstrap::instance();
+	}else{
+		/**
+		 * Show Error message.
+		 * @ignore
+		 */
+		function _2ch_composer_error(){
+			printf( '<div class="error"><p>%s</p></div>', sprintf(
+				__('[Error 2ch] Composer auto loader <code>%s</code> is missing. If you get this plugin from github, just run <code>composer install</code>.', '2ch'),
+				esc_html( __DIR__.'/vendor/autoload.php' )
+			) );
+		}
+		add_action( 'admin_notices', '_2ch_composer_error' );
+	}
 } else {
 	/**
 	 * Show Error message on admin screen.
+	 * @ignore
 	 */
 	function _2ch_version_error(){
 		printf( '<div class="error"><p>%s</p></div>', esc_html( sprintf(
-			__('[Error] Plugin 2ch requires PHP 5.3 and later, but your version is %s.', '2ch'),
+			__('[Error 2ch] Plugin 2ch requires PHP 5.3 and later, but your version is %s.', '2ch'),
 			phpversion()
 		) ) );
 	}
