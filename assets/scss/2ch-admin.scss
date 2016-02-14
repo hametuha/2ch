@@ -1,0 +1,71 @@
+.setting2ch{
+  &__label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0;
+    input {
+      font-weight: normal;
+    }
+    &--inline {
+      margin-right: 1.5em;
+    }
+  }
+
+  &__user{
+    .avatar{
+      vertical-align: bottom;
+    }
+  }
+
+  &__footer{
+    .avatar{
+      float: left;
+      margin: 0 1em 1em 0;
+      -webkit-border-radius:50%;
+      -moz-border-radius:50%;
+      border-radius:50%;
+    }
+
+  }
+}
+
+#form-2ch-setting{
+  th{
+    vertical-align: middle;
+    text-align: right;
+    border-right: 1px solid #ddd;
+  }
+  tr:nth-child(odd) {
+    td, th {
+      background: #ececec;
+    }
+  }
+  position: relative;
+  &.loading{
+    &:after{
+      content: " ";
+      display: block;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width:100%;
+      height: 100%;
+      background: rgba(255, 255, 255, .4);
+    }
+    .indicator{
+      display: block;
+      z-index: 11;
+    }
+  }
+  .indicator{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    font-size: 1.4em;
+    left: 0;
+    color: #888;
+  }
+}

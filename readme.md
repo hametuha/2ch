@@ -1,10 +1,27 @@
 2ch
 ======================
 
+Contributors: Takahashi_Fumiki  
+Tags: bbs, forum  
+Requires at least: 4.3   
+Tested up to: 4.5alpha  
+Stable tag: 1.0.0  
+License: GPLv3 or later  
+
 WordPress plugin for Japanese notorious anonymous BBS clone.
 
+## Description
 
-### Contribute
+You can 
+
+## Installation
+
+
+## Changelog
+
+
+
+## Contribute
 
 This plugin is hosted on [github](https://github.com/hametuha/2ch). 
 Any pull requests are welcomed.
@@ -21,6 +38,6 @@ composer install
 npm install
 # Build files.
 npm run build
-# Watch static files on developing.
+# Watch static files on development.
 npm run watch
 ```

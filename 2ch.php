@@ -14,6 +14,9 @@ Domain Path: /languages
 // Avoid direct load
 defined('ABSPATH') or die('Do not load directly');
 
+// Define version
+define( 'PLUGIN_2CH_VERSION', '1.0.0' );
+
 // Load i18n.
 load_plugin_textdomain( '2ch', false,  basename(dirname(__FILE__)). DIRECTORY_SEPARATOR . 'languages' );
 
@@ -48,4 +51,18 @@ if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
 		) ) );
 	}
 	add_action( 'admin_notices', '_2ch_version_error' );
+}
+
+/**
+ * Get plugin dir URL
+ *
+ * @package 2ch
+ * @param string $path
+ * @return string
+ */
+function _2ch_plugin_dir_url( $path = '' ){
+	if( $path ){
+		$path = '/'.ltrim($path, '/');
+	}
+	return untrailingslashit(plugin_dir_url(__FILE__)).$path;
 }
