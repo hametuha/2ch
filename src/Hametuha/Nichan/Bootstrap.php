@@ -4,6 +4,7 @@ namespace Hametuha\Nichan;
 
 use Hametuha\Nichan\Admin\SettingScreen;
 use Hametuha\Nichan\Pattern\Singleton;
+use Hametuha\Nichan\API\Thread;
 
 /**
  * Bootstrap Class
@@ -17,6 +18,7 @@ class Bootstrap extends Singleton {
 	 */
 	protected function initialize() {
 		SettingScreen::instance();
+		Thread::instance();
 	}
 
 

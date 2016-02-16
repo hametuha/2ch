@@ -91,6 +91,7 @@ class SettingScreen extends Application{
 					'messages' => $result->get_error_messages(),
 				) );
 			} else {
+				flush_rewrite_rules();
 				wp_send_json( array(
 					'success' => true,
 					'message' => __( 'Option updated.', '2ch' )
@@ -247,7 +248,7 @@ PHP;
 							</label>
 							<p class="description">
 								<?php esc_html_e('If you check this, thread form will be displayed after comments. You can manually display it with template tag:'); ?><br />
-								<code>&lt;?php nichan_thread_form() ?&gt;</code>
+								<code>&lt;?php nichan_thread_form('post_type') ?&gt;</code>
 							</p>
 						</td>
 					</tr>

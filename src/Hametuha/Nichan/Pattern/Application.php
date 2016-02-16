@@ -1,16 +1,51 @@
 <?php
 
 namespace Hametuha\Nichan\Pattern;
+use Hametuha\Nichan\Service\Recaptcha;
 use Hametuha\Nichan\Utility\Input;
 use Hametuha\Nichan\Utility\Option;
 
 /**
- * Class Application
+ * Application base
+ *
  * @package Hametuha\Nichan\Pattern
  * @property-read Input $input
  * @property-read option $option
+ * @property-read Recaptcha $recaptcha
  */
 abstract class Application extends Singleton{
+
+	/**
+	 * Load template if exists
+	 *
+	 * @param string $template
+	 * @param array  $args
+	 */
+	protected function load_template( $template, $args = array() ) {
+		$template_path = PLUGIN_2CH_DIR."/templates/{$template}.php";
+		foreach ( array( get_template_directory(), get_stylesheet_directory() ) as $dir ) {
+			$path = $dir . "/2ch/{$template}.php";
+			if( file_exists($path) ){
+				$template_path = $path;
+			}
+		}
+		/**
+		 * nichan_template_path
+		 *
+		 * @package 2ch
+		 * @since 1.0.0
+		 * @param string $template_path
+		 * @param string $template
+		 * @return string
+		 */
+		$template_path = apply_filters( 'nichan_template_path', $template_path, $template );
+		if ( file_exists( $template_path ) ) {
+			if( $args ){
+				extract( $args );
+			}
+			include $template_path;
+		}
+	}
 
 	/**
 	 * Post type is thread or not.
@@ -52,6 +87,9 @@ abstract class Application extends Singleton{
 				break;
 			case 'option':
 				return Option::instance();
+				break;
+			case 'recaptcha':
+				return Recaptcha::instance();
 				break;
 			default:
 				return null;

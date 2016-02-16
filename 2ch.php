@@ -11,21 +11,30 @@ Text Domain: 2ch
 Domain Path: /languages
 */
 
-// Avoid direct load
+// Avoid direct load.
 defined('ABSPATH') or die('Do not load directly');
 
-// Define version
+/**
+ * Define version
+ * @const string
+ */
 define( 'PLUGIN_2CH_VERSION', '1.0.0' );
+
+/**
+ * Define template directory.
+ * @const string
+ */
+define( 'PLUGIN_2CH_DIR', dirname( __FILE__ )  );
 
 // Load i18n.
 load_plugin_textdomain( '2ch', false,  basename(dirname(__FILE__)). DIRECTORY_SEPARATOR . 'languages' );
 
 // Check smallest availability.
 if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
-	if( file_exists( __DIR__.'/vendor/autoload.php' ) ){
+	if( file_exists( PLUGIN_2CH_DIR.'/vendor/autoload.php' ) ){
 		// Initialize instance.
-		require __DIR__.'/vendor/autoload.php';
-		\Hametuha\Nichan\Bootstrap::instance();
+		require PLUGIN_2CH_DIR.'/vendor/autoload.php';
+		call_user_func( array( 'Hametuha\\Nichan\\Bootstrap', 'instance' ) );
 	}else{
 		/**
 		 * Show Error message.
@@ -34,7 +43,7 @@ if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
 		function _2ch_composer_error(){
 			printf( '<div class="error"><p>%s</p></div>', sprintf(
 				__('[Error 2ch] Composer auto loader <code>%s</code> is missing. If you get this plugin from github, just run <code>composer install</code>.', '2ch'),
-				esc_html( __DIR__.'/vendor/autoload.php' )
+				esc_html( PLUGIN_2CH_DIR.'/vendor/autoload.php' )
 			) );
 		}
 		add_action( 'admin_notices', '_2ch_composer_error' );
@@ -65,4 +74,13 @@ function _2ch_plugin_dir_url( $path = '' ){
 		$path = '/'.ltrim($path, '/');
 	}
 	return untrailingslashit(plugin_dir_url(__FILE__)).$path;
+}
+
+/**
+ * Show thread from
+ *
+ * @param string $post_type
+ */
+function nichan_thread_form($post_type){
+	Hametuha\Nichan\API\Thread::instance()->form( $post_type );
 }
