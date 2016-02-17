@@ -1,0 +1,456 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2ch\n"
+"POT-Creation-Date: 2016-02-17 22:24+0900\n"
+"PO-Revision-Date: 2016-02-17 22:25+0900\n"
+"Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
+"Language-Team: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+"X-Poedit-SearchPathExcluded-2: dist\n"
+"X-Poedit-SearchPathExcluded-3: vendor\n"
+
+#: 2ch.php:47
+#, php-format
+msgid ""
+"[Error 2ch] Composer auto loader <code>%s</code> is missing. If you get this "
+"plugin from github, just run <code>composer install</code>."
+msgstr ""
+"[エラー 2ch] Composerのオートローダー<code>%s</code>がありません。このプラグ"
+"インをgithubから落とした場合は、<code>composer install</code>を実行してくださ"
+"い。"
+
+#: 2ch.php:60
+#, php-format
+msgid ""
+"[Error 2ch] Plugin 2ch requires PHP 5.3 and later, but your version is %s."
+msgstr ""
+"[エラー 2ch] プラグイン2chはPHP 5.3以上必須ですが、あなたのバージョンは%sで"
+"す。"
+
+#: src/Hametuha/Nichan/API/Comment.php:46
+msgid "Anonimous comment requires spam check of reCAPTCHA"
+msgstr "匿名コメントはreCAPTCHAによるスパムチェックが必須です。"
+
+#: src/Hametuha/Nichan/API/Comment.php:126
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:270
+#: templates/thread-form.php:53
+msgid "Hash"
+msgstr "ハッシュ"
+
+#: src/Hametuha/Nichan/API/Comment.php:138
+msgid "Spam Check"
+msgstr "スパムチェック"
+
+#: src/Hametuha/Nichan/API/Thread.php:98 templates/thread-form.php:34
+#, php-format
+msgid "Add New %s"
+msgstr "新規%sを追加"
+
+#: src/Hametuha/Nichan/API/Thread.php:99
+#, php-format
+msgid "Edit %s"
+msgstr "%sを編集"
+
+#: src/Hametuha/Nichan/API/Thread.php:100
+#, php-format
+msgid "New %s"
+msgstr "新規%s"
+
+#: src/Hametuha/Nichan/API/Thread.php:101
+#, php-format
+msgid "View %s"
+msgstr "%sを表示"
+
+#: src/Hametuha/Nichan/API/Thread.php:102
+#, php-format
+msgid "Search %s"
+msgstr "%sを検索"
+
+#: src/Hametuha/Nichan/API/Thread.php:103
+#, php-format
+msgid "No %s found."
+msgstr "%sが見つかりませんでした。"
+
+#: src/Hametuha/Nichan/API/Thread.php:104
+#, php-format
+msgid "No %s found in Trash."
+msgstr "ゴミ箱に%sは見つかりませんでした。"
+
+#: src/Hametuha/Nichan/API/Thread.php:105
+#, php-format
+msgid "Parent %s:"
+msgstr "親%s:"
+
+#: src/Hametuha/Nichan/API/Thread.php:106
+#, php-format
+msgid "All %s"
+msgstr "すべての%s"
+
+#: src/Hametuha/Nichan/API/Thread.php:107
+#, php-format
+msgid "%s Archives"
+msgstr "%s アーカイブ"
+
+#: src/Hametuha/Nichan/API/Thread.php:108
+#, php-format
+msgid "Insert into %s"
+msgstr "%sに挿入"
+
+#: src/Hametuha/Nichan/API/Thread.php:109
+#, php-format
+msgid "Uploaded to this %s"
+msgstr "﻿この%sにアップロード"
+
+#: src/Hametuha/Nichan/API/Thread.php:110
+#, php-format
+msgid "Filter %s list"
+msgstr "%sリストを絞り込み"
+
+#: src/Hametuha/Nichan/API/Thread.php:111
+#, php-format
+msgid "%s list navigation"
+msgstr "﻿%sリスト ナビゲーション"
+
+#: src/Hametuha/Nichan/API/Thread.php:112
+#, php-format
+msgid "%s list"
+msgstr "%sリスト"
+
+#: src/Hametuha/Nichan/API/Thread.php:179
+#, php-format
+msgid "Create %s"
+msgstr "%sを作成"
+
+#: src/Hametuha/Nichan/API/Thread.php:303
+#, php-format
+msgid "%s was successfully created"
+msgstr "%sが作成されました。"
+
+#: src/Hametuha/Nichan/API/Thread.php:365
+msgid "To Administrator"
+msgstr "管理者様"
+
+#: src/Hametuha/Nichan/API/Thread.php:368
+msgid "New thread has been created and waiting for your review."
+msgstr "新しいスレッドが作成され、承認待ちとなっています。"
+
+#: src/Hametuha/Nichan/API/Thread.php:369
+msgid "Please go to the link below and moderate it."
+msgstr "以下のリンクへ行き、承認してください。"
+
+#: src/Hametuha/Nichan/API/Thread.php:383
+#, php-format
+msgid "[%s] Thread has been created"
+msgstr "[%s] スレッドが作成されました"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:33
+msgid "2ch Setting"
+msgstr "2ch設定"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:49
+msgid "Setting"
+msgstr "設定"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:70
+msgid "Invalid access."
+msgstr "不正なアクセス。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:73
+msgid "You have no permission."
+msgstr "あなたには権限がありません。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:97
+msgid "Option updated."
+msgstr "設定が更新されました。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:168
+msgid "Loading..."
+msgstr "読込中..."
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:176
+msgid "Select Existing Post Types"
+msgstr "既存の投稿タイプから選ぶ"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:199
+msgid "Create Post Type"
+msgstr "投稿タイプを作成"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:203
+msgid "Create new post type for thread"
+msgstr "スレッド用に新しい投稿タイプを作成"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:207
+msgid "Post type name"
+msgstr "投稿タイプ名"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:211
+msgid "Post type label(singular)"
+msgstr "投稿タイプラベル（単数形）"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:215
+msgid "Post type label(plural)"
+msgstr "投稿タイプラベル（複数形）"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:219
+msgid "For advanced user: "
+msgstr "上級ユーザーへ: "
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:221
+#, php-format
+msgid ""
+"You can override post type setting with %s filter. For $arg's detail, see %s."
+msgstr ""
+"%sフィルターで投稿タイプの設定を上書きできます。$argの詳細については%sを見て"
+"ください。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:223
+msgid "https://codex.wordpress.org/Function_Reference/register_post_type"
+msgstr ""
+"http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC"
+"%E3%83%B3%E3%82%B9/register_post_type"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:227
+msgid "Hide archive page."
+msgstr "アーカイブページを隠す"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:228
+msgid "Hide admin screen if current user is not editor."
+msgstr "現在のユーザーが編集者でなければ、管理画面を隠す。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:243
+msgid "Form Display"
+msgstr "フォーム表示"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:247
+msgid "Show thread form automatically"
+msgstr "スレッドフォームを自動的に表示"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:250
+msgid ""
+"If you check this, thread form will be displayed after single posts content. "
+"You can manually display it with template tag:"
+msgstr ""
+"これを選択すると、シングルページの投稿本文直後にスレッドフォームが表示されま"
+"す。次のテンプレートタグで手動表示することもできます: "
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:257
+msgid "Moderation"
+msgstr "承認"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:261
+msgid "Require moderation for thread"
+msgstr "スレッドを承認制にする"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:264
+msgid ""
+"If checked, every post's status will be pending and requires your moderation."
+msgstr ""
+"選択した場合、すべての投稿のステータスはレビュー待ちになり、承認が必要となり"
+"ます。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:274
+msgid "Use hash to distinct each user"
+msgstr "それぞれのユーザーを区別するためにハッシュを使う"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:280
+msgid "Post as"
+msgstr "代理投稿者"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:288
+msgid "Type and Search..."
+msgstr "入力して検索…"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:291
+msgid ""
+"Every anonymous threads and comments will be owned by this user. It is "
+"strongly recommended creating new user like \"anonymous\"."
+msgstr ""
+"すべての匿名スレッドとコメントはこのユーザーのものとなります。\"ななしさん"
+"\"のような新しいユーザーを作成することを強くおすすめします。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:299
+msgid "Site Key"
+msgstr "サイトキー"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:303
+msgid "Secret Key"
+msgstr "秘密鍵"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:307
+#, php-format
+msgid ""
+"You should register Google reCAPTCHA and get code <a target=\"_blank\" href="
+"\"%s\">here</a>."
+msgstr ""
+"Google reCAPTCHAに登録し、<a target=\"_blank\" href=\"%s\">こちら</a>からコー"
+"ドを取得する必要があります。"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:319
+msgid "From Plugin Author"
+msgstr "プラグイン作者より"
+
+#: src/Hametuha/Nichan/Admin/SettingScreen.php:321
+msgid ""
+"I'm <a href=\"https://hametuha.co.jp\" target=\"_blank\">Takahash Fumiki</"
+"a>, the plugin developer. If you have question about 2ch, ask me via <a href="
+"\"https://twitter.com/takahashifumiki/\" target=\"_blank\">twitter</a>. This "
+"plugin is hosted on <a target=\"_blank\" href=\"https://github.com/"
+"hametuha/2ch/\">github</a> and feel free to send <abbr>P.R.</abbr>"
+msgstr ""
+"プラグイン作者の<a href=\"https://hametuha.co.jp\" target=\"_blank\">高橋文樹"
+"</a>です。2chについてわからないことがある場合は、<a href=\"https://twitter."
+"com/takahashifumiki/\" target=\"_blank\">twitter</a>などで聞いてください。こ"
+"のプラグインは<a target=\"_blank\" href=\"https://github.com/hametuha/2ch/"
+"\">github</a>にホスティングされているので、気軽に<abbr>プルリク</abbr>をお送"
+"りください。"
+
+#: src/Hametuha/Nichan/Pattern/ApiBase.php:47
+msgid "Comment has been posted and waiting form moderation."
+msgstr "コメントは投稿され、承認を待っています。"
+
+#: src/Hametuha/Nichan/Service/Recaptcha.php:37
+#, php-format
+msgid "Error %s: Failed to get response."
+msgstr "エラー %s: 応答がありませんでした。"
+
+#: src/Hametuha/Nichan/Service/Recaptcha.php:40
+msgid "Failed to authenticate reCAPTCHA. Please try again."
+msgstr "reCAPTCHAの認証に失敗しました。やりなおしてください。"
+
+#: src/Hametuha/Nichan/Utility/Input.php:98
+msgid "No file is specified."
+msgstr "ファイルが指定されていません。"
+
+#: src/Hametuha/Nichan/Utility/Input.php:103
+msgid "Uploaded file is too large"
+msgstr "アップロードされたファイルが大きすぎます。"
+
+#: src/Hametuha/Nichan/Utility/Input.php:106
+msgid "Sorry, but failed to upload."
+msgstr "﻿申し訳ありません、アップロードに失敗しました。"
+
+#: src/Hametuha/Nichan/Utility/Option.php:62
+#, php-format
+msgid "%s is not specified."
+msgstr "﻿%s が指定されていません。"
+
+#: src/Hametuha/Nichan/Utility/Option.php:69
+msgid "User ID is wrong format."
+msgstr "ユーザーIDが不正な形式です。"
+
+#: src/Hametuha/Nichan/Utility/Option.php:103
+msgid "Thread"
+msgstr "スレッド"
+
+#: src/Hametuha/Nichan/Utility/Option.php:104
+msgid "Threads"
+msgstr "スレッド"
+
+#: template-tags.php:62
+msgid ""
+"Hash is meaningless letters which is generated from other letter and always "
+"results same. If you enter \"example\", hash is always \"w8lyfng5x19pmk8i\". "
+"You can identify yourself with this uniqueness."
+msgstr ""
+"ハッシュとはある文字から生成された無意味な文字列のことで、常に同じ結果となり"
+"ます。もしあなたが\"example\"と入力すると、ハッシュは常に\"w8lyfng5x19pmk8i"
+"\"となります。この特徴によって他のユーザーと区別することができます。"
+
+#: templates/thread-form.php:39
+msgid "Title"
+msgstr "タイトル"
+
+#: templates/thread-form.php:41
+msgid "Enter title here."
+msgstr "ここにタイトルを入力してください。"
+
+#: templates/thread-form.php:46
+msgid "Content"
+msgstr "本文"
+
+#: templates/thread-form.php:48
+#, php-format
+msgid "Enter %s's detail here."
+msgstr "%sの詳細を入力してください。"
+
+#: templates/thread-form.php:55
+msgid "Enter the words you only know"
+msgstr "あなただけが知っている言葉を入力してください"
+
+#: templates/thread-form.php:112
+msgid "Submit"
+msgstr "送信"
+
+#~ msgid "Hello"
+#~ msgstr "こんにちは"
+
+#~ msgid "Hello %s %s"
+#~ msgstr "こんにちは %s %s"
+
+#~ msgid "banana"
+#~ msgstr "バナナ"
+
+#~ msgid "meow"
+#~ msgstr "にゃーお"
+
+#~ msgid "apple"
+#~ msgstr "りんご"
+
+#~ msgid "foo"
+#~ msgstr "foo"
+
+#~ msgid "bar"
+#~ msgstr "bar"
+
+#, fuzzy
+#~ msgid "count"
+#~ msgstr "件数"
+
+#, fuzzy
+#~ msgid "string"
+#~ msgstr "あなたのアプリを特定するための一意な文字列"
+
+#, fuzzy
+#~ msgid "array"
+#~ msgstr "タームオブジェクトからなる配列"
+
+#, fuzzy
+#~ msgid "required"
+#~ msgstr "必須"
+
+#, fuzzy
+#~ msgid "generated-value"
+#~ msgstr "値"
+
+#, fuzzy
+#~ msgid "default:"
+#~ msgstr "デフォルト"
+
+#, fuzzy
+#~ msgid "Invalid values:"
+#~ msgstr "ルートが無効です"
+
+#, fuzzy
+#~ msgid "Argument: %s, Given: %s, Choices: %s"
+#~ msgstr "%sの引数が無効です。"
+
+#, fuzzy
+#~ msgid "Argument check failed: %s"
+#~ msgstr "%sの引数が無効です。"
+
+#, fuzzy
+#~ msgid "Implications failed:"
+#~ msgstr "ファイルをアップロードできませんでした。"

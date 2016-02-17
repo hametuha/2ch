@@ -34,6 +34,8 @@ abstract class Application extends Singleton{
 		/**
 		 * nichan_template_path
 		 *
+		 * Template path filter to change included file.
+		 *
 		 * @package 2ch
 		 * @since 1.0.0
 		 * @param string $template_path

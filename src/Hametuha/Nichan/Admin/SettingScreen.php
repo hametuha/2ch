@@ -247,7 +247,7 @@ PHP;
 								<input type="checkbox" name="show_form_automatically" value="1"<?php checked( $this->option->show_form_automatically ) ?>> <?php esc_html_e('Show thread form automatically', '2ch') ?>
 							</label>
 							<p class="description">
-								<?php esc_html_e('If you check this, thread form will be displayed after comments. You can manually display it with template tag:'); ?><br />
+								<?php esc_html_e('If you check this, thread form will be displayed after single posts content. You can manually display it with template tag:', '2ch'); ?><br />
 								<code>&lt;?php nichan_thread_form('post_type') ?&gt;</code>
 							</p>
 						</td>
@@ -316,7 +316,7 @@ PHP;
 			<hr />
 			<div class="setting2ch__footer">
 				<?php echo get_avatar('takahashi.fumiki@hametuha.co.jp') ?>
-				<h2 class="setting2ch__footer--title"><?php esc_html_e('From Plugin Author') ?></h2>
+				<h2 class="setting2ch__footer--title"><?php esc_html_e('From Plugin Author', '2ch') ?></h2>
 				<p>
 					<?php _e( 'I\'m <a href="https://hametuha.co.jp" target="_blank">Takahash Fumiki</a>, the plugin developer. If you have question about 2ch, ask me via <a href="https://twitter.com/takahashifumiki/" target="_blank">twitter</a>. This plugin is hosted on <a target="_blank" href="https://github.com/hametuha/2ch/">github</a> and feel free to send <abbr>P.R.</abbr>', '2ch') ?>
 				</p>

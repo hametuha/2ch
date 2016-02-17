@@ -83,6 +83,13 @@ class Thread extends ApiBase {
 	 */
 	public function create_post_type(){
 		if( $this->option->create_post_type ){
+			/**
+			 * nichan_post_type_args
+			 *
+			 * @param array $args Arguments passed to `register_post_type`.
+			 * @param string $post_type Post type name
+			 * @return array
+			 */
 			$args = apply_filters('nichan_post_type_args', array(
 				'label' => $this->option->post_type_label_plural,
 				'labels' => array(
@@ -107,7 +114,7 @@ class Thread extends ApiBase {
 				'public' => true,
 				'has_archive' => true,
 				'supports' => array( 'title', 'editor', 'author', 'comments' ),
-			) );
+			), $this->option->post_type_name );
 			register_post_type( $this->option->post_type_name, $args );
 		}
 	}
@@ -117,9 +124,11 @@ class Thread extends ApiBase {
 	 */
 	public function enqueue_scripts(){
 		/**
+		 * nichan_load_style
+		 *
 		 * If css can be load
 		 *
-		 * @param bool $load_style
+		 * @param bool $load_style Flag used for deciding to load plugin's CSS.
 		 * @return bool
 		 */
 		$load_style = apply_filters( 'nichan_load_style', true);
@@ -167,7 +176,7 @@ class Thread extends ApiBase {
 			$this->form( get_post_type() );
 			$form = ob_get_contents();
 			ob_end_clean();
-			$label = sprintf( 'Create %s', get_post_type_object(get_post_type())->labels->singular_name );
+			$label = sprintf( __( 'Create %s', '2ch' ), get_post_type_object(get_post_type())->labels->singular_name );
 			$content .= <<<HTML
 <div class="nichan-thread__toggler">
 	<button type="button" class="nichan-thread__button">{$label}</button>
@@ -252,6 +261,8 @@ HTML;
 		/**
 		 * nichan_post_args
 		 *
+		 * Post array passed to `wp_insert_post` on thread creation.
+		 *
 		 * @param array $posts_arr
 		 * @return array
 		 */
@@ -280,6 +291,15 @@ HTML;
 			}
 		}
 		$post_type_object = get_post_type_object( $params['post_type'] );
+		/**
+		 * nichan_thread_message
+		 *
+		 * Message displayed on thread creation.
+		 *
+		 * @param string $message
+		 * @param string $post_type
+		 * @return string
+		 */
 		$message = apply_filters( 'nichan_thread_message', sprintf( __( '%s was successfully created', '2ch' ), $post_type_object->label), $post_type_object->name );
 		// Add trip if specified.
 		if( $params['trip'] && $this->option->use_trip ){
@@ -292,7 +312,9 @@ HTML;
 		/**
 		 * nichan_preview_limit
 		 *
-		 * @param int $time_limit Timelimit in seconds.
+		 * Preview URL's time limit.
+		 *
+		 * @param int $time_limit Time limit in seconds.
 		 * @return int
 		 */
 		$hash_limit = apply_filters( 'nichan_preview_limit',  60 * 60 * 24 * 3 );
@@ -330,6 +352,8 @@ HTML;
 			/**
 			 * nichan_pending_mail
 			 *
+			 * E-mail address to which review query will be sent.
+			 *
 			 * @param string E-mail. Default, admin's e-mail.
 			 * @param \WP_Post $post Newly created post object.
 			 * @return false|string If false returned, mail was not sent.
@@ -348,6 +372,8 @@ HTML;
 				);
 				/**
 				 * nichan_pending_mail_body
+				 *
+				 * Mail body of review query.
 				 *
 				 * @param string $body Mail message
 				 * @param \WP_Post $post
