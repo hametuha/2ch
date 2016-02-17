@@ -32,6 +32,8 @@ load_plugin_textdomain( '2ch', false,  basename(dirname(__FILE__)). DIRECTORY_SE
 // Check smallest availability.
 if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
 	if( file_exists( PLUGIN_2CH_DIR.'/vendor/autoload.php' ) ){
+		// Load template tags.
+		require PLUGIN_2CH_DIR.'/template-tags.php';
 		// Initialize instance.
 		require PLUGIN_2CH_DIR.'/vendor/autoload.php';
 		call_user_func( array( 'Hametuha\\Nichan\\Bootstrap', 'instance' ) );
@@ -60,27 +62,4 @@ if ( version_compare( phpversion(), '5.3.*', '>=' ) ) {
 		) ) );
 	}
 	add_action( 'admin_notices', '_2ch_version_error' );
-}
-
-/**
- * Get plugin dir URL
- *
- * @package 2ch
- * @param string $path
- * @return string
- */
-function _2ch_plugin_dir_url( $path = '' ){
-	if( $path ){
-		$path = '/'.ltrim($path, '/');
-	}
-	return untrailingslashit(plugin_dir_url(__FILE__)).$path;
-}
-
-/**
- * Show thread from
- *
- * @param string $post_type
- */
-function nichan_thread_form($post_type){
-	Hametuha\Nichan\API\Thread::instance()->form( $post_type );
 }

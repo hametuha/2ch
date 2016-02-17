@@ -34,14 +34,17 @@ abstract class ApiBase extends Application{
 	 * Register assets
 	 */
 	final public function register_scripts(){
+		// JS Cookie
+		wp_register_script( 'js-cookie', _2ch_plugin_dir_url('/dist/js/js.cookie.js'), array(), '2.1.0', true );
 		// Google reCAPTCHA
 		wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, false);
 		// Form helper
-		wp_register_script( '2ch-form', _2ch_plugin_dir_url('/dist/js/2ch.js'), array('jquery-form', 'recaptcha'), PLUGIN_2CH_VERSION, true );
+		wp_register_script( '2ch-form', _2ch_plugin_dir_url('/dist/js/2ch.js'), array('jquery-form', 'js-cookie', 'recaptcha'), PLUGIN_2CH_VERSION, true );
 		wp_localize_script( '2ch-form', 'NichanVars', array(
 			'root'     => get_rest_url(),
 			'nonce'    => wp_create_nonce('wp_rest'),
 			'callback' => false,
+			'message'  => __( 'Comment has been posted and waiting form moderation.', '2ch' )
 		) );
 	}
 
@@ -49,8 +52,6 @@ abstract class ApiBase extends Application{
 	 * Handle response
 	 *
 	 * @param \WP_REST_Server $wp_rest_server
-	 *
-	 * @return \WP_REST_Response
 	 */
 	abstract public function rest_api_init( $wp_rest_server );
 

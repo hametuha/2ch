@@ -72,6 +72,8 @@ class Thread extends ApiBase {
 					'type' => 'NUMERIC',
 				)
 			) );
+			$wp_query->is_singular = true;
+			$wp_query->is_archive = false;
 		}
 	}
 
@@ -121,7 +123,7 @@ class Thread extends ApiBase {
 		 */
 		$load_style = apply_filters( 'nichan_load_style', true);
 		if( $load_style  ) {
-			wp_enqueue_style( '2ch-style', _2ch_plugin_dir_url('/dist/css/2ch.css'), [], PLUGIN_2CH_VERSION );
+			wp_enqueue_style( '2ch-style', _2ch_plugin_dir_url('/dist/css/2ch.css'), array(), PLUGIN_2CH_VERSION );
 		}
 	}
 
@@ -137,16 +139,16 @@ class Thread extends ApiBase {
 				'post_type' => get_post_type_object( $post_type ),
 				'recaptcha' => $this->option->recaptcha_pub_key,
 				'endpoint'  => rest_url($this->base.'/thread/'.$post_type.'/'),
+				'use_hash'   => $this->option->use_trip,
 			) );
 		}
 	}
 
 
 	/**
-	 * Regsiter API
+	 * Register API
 	 *
 	 * @param \WP_REST_Server $wp_rest_server
-	 * @return \WP_REST_Response
 	 */
 	public function rest_api_init( $wp_rest_server ) {
 		$self = $this;
@@ -180,6 +182,9 @@ class Thread extends ApiBase {
 							return ! empty( $param );
 						},
 						'required' => true,
+					),
+					'trip' => array(
+						'default' => '',
 					),
 				),
 				'permission_callback' => array( $this, 'permission_callback' ),
@@ -242,6 +247,11 @@ class Thread extends ApiBase {
 		}
 		$post_type_object = get_post_type_object( $params['post_type'] );
 		$message = apply_filters( 'nichan_thread_message', sprintf( __( '%s was successfully created', '2ch' ), $post_type_object->label), $post_type_object->name );
+		// Add trip if specified.
+		if( $params['trip'] && $this->option->use_trip ){
+			$trip = $this->hash->generate( $params['trip'] );
+			update_post_meta( $post_id, '_trip', $trip );
+		}
 		// Add hash
 		$hash = md5( $post_type_object->name.'-'.$post_id );
 		update_post_meta( $post_id, '_nichan_hash', $hash );
@@ -287,17 +297,19 @@ class Thread extends ApiBase {
 			 * nichan_pending_mail
 			 *
 			 * @param string E-mail. Default, admin's e-mail.
+			 * @param \WP_Post $post Newly created post object.
 			 * @return false|string If false returned, mail was not sent.
 			 */
-			$mail_to = apply_filters('nichan_pending_mail', get_option('admin_email') );
-			if( $mail_to ){
+			$mail_to = apply_filters('nichan_pending_mail', get_option('admin_email'), $post );
+			if ( $mail_to ) {
 				$title   = $post->post_title;
-				$content = $post->post_content;
 				$body    = array(
 					__( 'To Administrator', '2ch' ),
 					'',
-					__( 'New thread has been created and waiting for your review.' ),
-					__( 'Please go to the link below and moderate it.' ),
+					'',
+					__( 'New thread has been created and waiting for your review.', '2ch' ),
+					__( 'Please go to the link below and moderate it.', '2ch' ),
+					$title,
 					get_permalink( $post ),
 				);
 				/**

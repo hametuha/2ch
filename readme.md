@@ -3,7 +3,7 @@
 
 Contributors: Takahashi_Fumiki  
 Tags: bbs, forum  
-Requires at least: 4.3   
+Requires at least: 4.4  
 Tested up to: 4.5alpha  
 Stable tag: 1.0.0  
 License: GPLv3 or later  

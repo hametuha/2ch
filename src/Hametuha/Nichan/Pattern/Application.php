@@ -2,6 +2,7 @@
 
 namespace Hametuha\Nichan\Pattern;
 use Hametuha\Nichan\Service\Recaptcha;
+use Hametuha\Nichan\Utility\Hash;
 use Hametuha\Nichan\Utility\Input;
 use Hametuha\Nichan\Utility\Option;
 
@@ -12,6 +13,7 @@ use Hametuha\Nichan\Utility\Option;
  * @property-read Input $input
  * @property-read option $option
  * @property-read Recaptcha $recaptcha
+ * @property-read Hash $hash
  */
 abstract class Application extends Singleton{
 
@@ -87,6 +89,9 @@ abstract class Application extends Singleton{
 				break;
 			case 'option':
 				return Option::instance();
+				break;
+			case 'hash':
+				return Hash::instance();
 				break;
 			case 'recaptcha':
 				return Recaptcha::instance();

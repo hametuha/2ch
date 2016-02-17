@@ -56,4 +56,41 @@
     } );
   } );
 
+  /**
+   * Check cookie and show if exists.
+   */
+  $(document).ready(function(){
+    // If form exists, check cookie
+    var $recaptcha = $('#nichan-recaptcha');
+    if( $recaptcha.length ){
+      var id = $recaptcha.attr('data-post-id');
+      var cookie = Cookies.get('nichan_posted');
+      if( cookie ){
+        var post_ids = cookie.split('-');
+        if( -1 < post_ids.indexOf(id) ){
+          // Cookie exists!
+          message($recaptcha.parents('form'), NichanVars.message, 'success');
+          var newCookie = [];
+          for( var i = 0, l = post_ids.length; i < l; i++ ){
+            if( id != post_ids[i] ){
+              newCookie.push(post_ids[i])
+            }
+          }
+          if( newCookie.length ){
+            // Refresh cookie.
+            Cookies.set('nichan_posted', newCookie.join('-'), {
+              path: '/',
+              expires: 1
+            });
+          }else{
+            // Remove cookie.
+            Cookies.remove('nichan_posted', {
+              path: '/'
+            });
+          }
+        }
+      }
+    }
+  });
+
 })(jQuery);

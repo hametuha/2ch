@@ -25,6 +25,7 @@ For taxonomy work around:
 /** @var stdClass $post_type */
 /** @var string   $endpoint  */
 /** @var string   $recaptcha */
+/** @var bool     $use_hash */
 ?>
 
 <form class="nichan-thread" method="post" action="<?php echo esc_url( $endpoint ) ?>">
@@ -46,6 +47,17 @@ For taxonomy work around:
 		<textarea id="nichan-thread-content" name="post_content"
 		          placeholder="<?php echo esc_attr( sprintf( __( 'Enter %s\'s detail here.', '2ch'), $post_type->labels->singular_name ) ) ?>"></textarea>
 	</div>
+
+	<?php if( $use_hash ): ?>
+	<div class="nichan-thread-group">
+		<label class="nichan-thread__label" for="nichan-thread-trip"><?php esc_html_e( 'Hash', '2ch' ) ?></label>
+		<input type="text" id="nichan-thread-trip" name="trip" value=""
+		       placeholder="<?php esc_attr_e( 'Enter the words you only know', '2ch' ) ?>">
+		<p class="nichan-thread__description">
+			<?php echo nichan_hash_description() ?>
+		</p>
+	</div>
+	<?php endif; ?>
 
 	<!-- Taxonomies -->
 	<?php foreach( get_object_taxonomies( $post_type->name, OBJECT ) as $taxonomy ) : if( $taxonomy->public ) :  ?>

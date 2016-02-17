@@ -69,8 +69,16 @@ gulp.task('watch', function () {
   gulp.watch('./assets/img/**/*', ['imagemin'] );
 });
 
+// Copy library
+gulp.task( 'lib', function(){
+  return gulp.src('./node_modules/js-cookie/src/js.cookie.js')
+    .pipe($.plumber())
+    .pipe($.uglify())
+    .pipe(gulp.dest('./dist/js'));
+} );
+
 // Build
-gulp.task('build', ['sass', 'uglify', 'imagemin']);
+gulp.task('build', ['sass', 'uglify', 'imagemin', 'lib']);
 
 // Default Tasks
 gulp.task('default', ['build', 'watch']);
