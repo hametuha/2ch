@@ -23,6 +23,7 @@ class Thread extends ApiBase {
 		add_filter( 'rewrite_rules_array',  array($this, 'rewrite_rules_array'));
 		add_action( 'pre_get_posts', array($this, 'pre_get_posts') );
 		add_action( 'transition_post_status', array($this, 'transition_post_status'), 10, 3 );
+		add_action( 'template_redirect', array($this, 'template_redirect') );
 	}
 
 	/**
@@ -142,6 +143,39 @@ class Thread extends ApiBase {
 				'use_hash'   => $this->option->use_trip,
 			) );
 		}
+	}
+
+	/**
+	 * Register the_content filter
+	 */
+	public function template_redirect(){
+		if( is_singular() ){
+			add_filter( 'the_content', array( $this, 'the_content' ) );
+		}
+	}
+
+	/**
+	 * Show form automatically
+	 *
+	 * @param string $content
+	 *
+	 * @return string
+	 */
+	public function the_content($content) {
+		if ( $this->is_thread( get_post_type() ) && $this->option->show_form_automatically ) {
+			ob_start();
+			$this->form( get_post_type() );
+			$form = ob_get_contents();
+			ob_end_clean();
+			$label = sprintf( 'Create %s', get_post_type_object(get_post_type())->labels->singular_name );
+			$content .= <<<HTML
+<div class="nichan-thread__toggler">
+	<button type="button" class="nichan-thread__button">{$label}</button>
+</div>
+{$form}
+HTML;
+		}
+		return $content;
 	}
 
 

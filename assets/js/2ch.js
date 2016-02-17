@@ -19,7 +19,7 @@
       status = 'success';
     }
     if ( NichanVars.callback ) {
-      $form.trigger('message.nichan', [message, status]);
+      $(document).trigger( 'message.nichan', [message, status, $form] );
     } else {
       window.alert( message );
     }
@@ -91,6 +91,16 @@
         }
       }
     }
+
+    /**
+     * Thread toggler
+     */
+    $(document).ready(function(){
+      $('.nichan-thread__button').click(function(e){
+        e.preventDefault();
+        $(this).parent('div').remove();
+      });
+    });
   });
 
 })(jQuery);

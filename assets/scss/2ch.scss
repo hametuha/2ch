@@ -3,6 +3,14 @@
 
   position: relative;
 
+  &__toggler{
+    text-align: center;
+    margin: 1em 0;
+    & + .nichan-thread{
+      display: none;
+    }
+  }
+
   &.loading{
     &:after{
       content: "";
