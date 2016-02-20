@@ -5,7 +5,7 @@ Contributors: Takahashi_Fumiki
 Tags: bbs, forum  
 Requires at least: 4.4  
 Tested up to: 4.5alpha  
-Stable tag: 1.0.0  
+Stable tag: 1.0.1  
 License: GPLv3 or later  
 
 WordPress plugin for Japanese notorious anonymous BBS clone.
@@ -22,6 +22,7 @@ You can create anonymous BBS like [2ch.net](http://2ch.net). Requires PHP 5.3 an
 
 ## Changelog
 
+- 1.0.1 Fix bug: Multiple reCAPTCHA will be displayed.  
 - 1.0.0 First release.
 
 ## Customization

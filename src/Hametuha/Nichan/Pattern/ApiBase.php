@@ -37,7 +37,7 @@ abstract class ApiBase extends Application{
 		// JS Cookie
 		wp_register_script( 'js-cookie', _2ch_plugin_dir_url('/dist/js/js.cookie.js'), array(), '2.1.0', true );
 		// Google reCAPTCHA
-		wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, false);
+		wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js?render=explicit&onload=nichanCallback', array(), null, false);
 		// Form helper
 		wp_register_script( '2ch-form', _2ch_plugin_dir_url('/dist/js/2ch.js'), array('jquery-form', 'js-cookie', 'recaptcha'), PLUGIN_2CH_VERSION, true );
 		wp_localize_script( '2ch-form', 'NichanVars', array(

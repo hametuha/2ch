@@ -8,6 +8,19 @@
   'use strict';
 
   /**
+   * Register reCAPTCHA callback
+   */
+  window.nichanCallback = function(){
+    setTimeout(function(){
+      $('.g-recaptcha').each(function (index, div) {
+        grecaptcha.render(div, {
+          sitekey: $(div).attr('data-sitekey')
+        });
+      });
+    }, 100);
+  };
+
+  /**
    * Message function
    *
    * @param {jQuery} $form
@@ -101,6 +114,7 @@
         $(this).parent('div').remove();
       });
     });
+
   });
 
 })(jQuery);

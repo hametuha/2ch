@@ -2,7 +2,7 @@
 /*
 Plugin Name: 2ch
 Description: WordPress plugin for Japanese notorious anonymous BBS clone.
-Version: 1.0.0
+Version: 1.0.1
 Plugin URI: https://github.com/hametuha/2ch
 Author: Takahashi_Fumiki
 Author URI: https://hametuha.co.jp
@@ -18,7 +18,7 @@ defined('ABSPATH') or die('Do not load directly');
  * Define version
  * @const string
  */
-define( 'PLUGIN_2CH_VERSION', '1.0.0' );
+define( 'PLUGIN_2CH_VERSION', '1.0.1' );
 
 /**
  * Define template directory.

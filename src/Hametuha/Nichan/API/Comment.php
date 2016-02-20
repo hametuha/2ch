@@ -142,9 +142,9 @@ HTML;
 				$args['recaptcha'] = <<<HTML
 <p class="comment-form-recaptcha">
 <label for="recaptcha">{$title}<span class="required">*</span></label>
+</p>
 <div id="nichan-recaptcha" data-post-id="{$id}" class="g-recaptcha nichan-thread__recaptcha" data-sitekey="{$key}"></div>
 {$nonce}
-</p>
 HTML;
 			}
 		}
